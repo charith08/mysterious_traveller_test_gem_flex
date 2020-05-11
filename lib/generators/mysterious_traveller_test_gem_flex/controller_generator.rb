@@ -1,6 +1,6 @@
 module MysteriousTravellerTestGemFlex
   module Generators
-    class TeamPageGenerator < Rails::Generators::NamedBase
+    class TeamGenerator < Rails::Generators::NamedBase
       include Rails::Generators::Migration
 
       def self.source_root
@@ -18,7 +18,7 @@ module MysteriousTravellerTestGemFlex
       def create_migration_file
         migration_template 'migration.rb', 'db/migrate/create_team_members_table.rb'
       end
-      
+
     end
   end
 end
