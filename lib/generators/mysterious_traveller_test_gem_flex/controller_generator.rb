@@ -1,4 +1,4 @@
-require 'generators/nopio_scaffold/generator_helpers'
+require 'generators/mysterious_traveller_test_gem_flex/generator_helpers'
 
 module MysteriousTravellerTestGemFlex
   module Generators
