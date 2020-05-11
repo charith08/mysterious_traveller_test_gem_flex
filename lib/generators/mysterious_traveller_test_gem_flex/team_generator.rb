@@ -22,6 +22,12 @@ module MysteriousTravellerTestGemFlex
         migration_template 'migration.rb', 'db/migrate/create_team_members_table.rb'
       end
 
+      def create_model_file
+        model_path = "app/models/coupon.rb"
+        Dir.mkdir(model_path) unless File.exist?(model_path)
+        template "coupon.rb", model_path
+      end
+
     end
   end
 end

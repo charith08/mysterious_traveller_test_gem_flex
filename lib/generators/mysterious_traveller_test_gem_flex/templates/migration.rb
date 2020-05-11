@@ -6,6 +6,7 @@ class CreateTeamMembers < ActiveRecord::Migration
       t.string :twitter_url
       t.string :bio
       t.string :image_url
+      
       t.timestamps
     end
   end
