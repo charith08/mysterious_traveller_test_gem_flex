@@ -3,7 +3,7 @@ require 'rails/generators/migration'
 
 module MysteriousTravellerTestGemFlex
   module Generators
-    class TeamGenerator < Rails::Generators::NamedBase
+    class InstallGenerator < Rails::Generators::Base
       include Rails::Generators::Migration
 
       def self.source_root
@@ -24,7 +24,6 @@ module MysteriousTravellerTestGemFlex
 
       def create_model_file
         model_path = "app/models/coupon.rb"
-        Dir.mkdir(model_path) unless File.exist?(model_path)
         template "coupon.rb", model_path
       end
 

@@ -5,8 +5,8 @@ class CreateTeamMembers < ActiveRecord::Migration
       t.string :name
       t.string :twitter_url
       t.string :bio
-      t.string :image_url
-      
+      t.references :user, foreign_key: true
+
       t.timestamps
     end
   end
