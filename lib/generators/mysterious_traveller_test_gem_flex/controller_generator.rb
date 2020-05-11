@@ -1,17 +1,24 @@
-require 'generators/mysterious_traveller_test_gem_flex/generator_helpers'
-
 module MysteriousTravellerTestGemFlex
   module Generators
-    # Custom scaffolding generator
-    class ControllerGenerator < Rails::Generators::NamedBase
-      include Rails::Generators::ResourceHelper
-      include MysteriousTravellerTestGemFlex::Generators::GeneratorHelpers
+    class TeamPageGenerator < Rails::Generators::NamedBase
+      include Rails::Generators::Migration
 
-      desc "Generates controller, controller_spec and views for the model with the given NAME."
-      source_root File.expand_path('../templates', __FILE__)
-
-      def copy_controller_and_spec_files
-        template "controller.rb", File.join("app/controllers", "coupons_controller.rb")
+      def self.source_root
+        @source_root ||= File.join(File.dirname(__FILE__), 'templates')
       end
+
+      def self.next_migration_number(dirname)
+        if ActiveRecord::Base.timestamped_migrations
+          Time.new.utc.strftime("%Y%m%d%H%M%S")
+        else
+          "%.3d" % (current_migration_number(dirname) + 1)
+        end
+      end
+
+      def create_migration_file
+        migration_template 'migration.rb', 'db/migrate/create_team_members_table.rb'
+      end
+      
+    end
   end
 end
