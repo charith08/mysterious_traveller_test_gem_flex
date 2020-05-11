@@ -1,3 +1,6 @@
+require 'rails/generators'
+require 'rails/generators/migration'
+
 module MysteriousTravellerTestGemFlex
   module Generators
     class TeamGenerator < Rails::Generators::NamedBase
@@ -13,7 +16,7 @@ module MysteriousTravellerTestGemFlex
         else
           "%.3d" % (current_migration_number(dirname) + 1)
         end
-      end 
+      end
 
       def create_migration_file
         migration_template 'migration.rb', 'db/migrate/create_team_members_table.rb'
